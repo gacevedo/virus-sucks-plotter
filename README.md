@@ -1,6 +1,6 @@
 # virus.sucks plotter
 
-This is a react web application that enables users to load and render PlusLife test results files exported from the [virus.sucks](https://virus.sucks) app.
+This is a react web application that enables users to load and render PlusLife test results files exported from the [virus.sucks](https://virus.sucks) app. **Do not use for professional or medical purposes.**
 
 ![Screenshot of the virus.sucks plotter web application](screenshot.png)
 
