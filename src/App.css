@@ -1,38 +1,58 @@
-.App {
-  text-align: center;
+.chart-container {
+  position: relative;
+  width: 800px;
+  margin: 20px auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.file-picker {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 20px;
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.file-picker.dragging {
+  background-color: #f0f0f0;
+  border-color: #999;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.file-picker .logo {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.file-picker span {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.file-picker input[type="file"] {
+  margin-bottom: 10px;
+}
+
+.file-picker p {
+  margin: 0;
+  color: #666;
+}
+
+.chart-container .recharts-wrapper {
+  margin-top: 20px;
+}
+
+.chart-container .recharts-legend-wrapper {
+  bottom: -40px !important;
+}
+
+.chart-container .recharts-surface {
+  overflow: visible;
+}
+
+.disclaimer {
+  margin-top: 0px;
+  font-size: 10px;
 }
