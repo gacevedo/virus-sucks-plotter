@@ -115,7 +115,7 @@ const SimpleLineChart = () => {
         <p>or drag and drop a JSON file here</p>
       </div>
       <div className='disclaimer'>
-        Disclaimer: this data is not transmitted to any server. It is processed only in your browser. Source code is available <a href="https://github.com/gacevedo/virus-sucks-plotter" target="_blank" rel="noopener noreferrer"> on GitHub</a>.
+        Disclaimer: <span className='disclaimer-bold'>Do not use for professional or medical purposes.</span> Data is not transmitted to any server. It is processed only in your browser. <a href="https://github.com/gacevedo/virus-sucks-plotter" target="_blank" rel="noopener noreferrer">Source code is available</a>.
       </div>
       {data && (
         <div className='test-info'>
