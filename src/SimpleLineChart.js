@@ -140,7 +140,7 @@ const SimpleLineChart = () => {
             label={{ value: "Time since start (min)", position: "bottom", offset: 0 }}
           />
           <YAxis
-            label={{ value: "Fluorescence value", angle: -90, position: "insideLeft", offset: -8 }}
+            label={{ value: "Fluorescence value", angle: -90, position: "insideLeft", offset: -8, style: { textAnchor: 'middle' } }}
           />
           <Tooltip />
           <Legend 

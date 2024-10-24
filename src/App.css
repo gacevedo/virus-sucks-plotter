@@ -57,6 +57,10 @@
   font-size: 10px;
 }
 
+.test-info {
+  margin-top: 50px;
+}
+
 .test-info .test-type {
   font-weight: bold;
 }
