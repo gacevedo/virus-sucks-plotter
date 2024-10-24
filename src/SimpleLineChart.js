@@ -110,9 +110,8 @@ const SimpleLineChart = () => {
         onDrop={handleDrop}
       >
         <Logo className="logo" alt="virus.sucks plotter logo" />
-        <span>Load and plot a PlusLife tests results file exported from the <a href="https://virus.sucks" target="_blank" rel="noopener noreferrer">virus.sucks</a> app:</span>
+        <span>Drag and drop a PlusLife tests results JSON file exported from the <a href="https://virus.sucks" target="_blank" rel="noopener noreferrer">virus.sucks</a> app:</span>
         <input type="file" onChange={handleFileUpload} accept=".json" />
-        <p>or drag and drop a JSON file here</p>
       </div>
       <div className='disclaimer'>
         Disclaimer: <span className='disclaimer-bold'>Do not use for professional or medical purposes.</span> Data is not transmitted to any server. It is processed only in your browser. <a href="https://github.com/gacevedo/virus-sucks-plotter" target="_blank" rel="noopener noreferrer">Source code is available</a>.
