@@ -2,6 +2,8 @@
 
 This is a react web application that enables users to load and render PlusLife test results files exported from the [virus.sucks](https://virus.sucks) app.
 
+![Screenshot of the virus.sucks plotter web application](screenshot.png)
+
 ## Developer notes
 
 In the project directory, you can run:
