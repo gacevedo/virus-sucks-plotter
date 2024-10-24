@@ -41,4 +41,5 @@
       <circle cx="160" cy="60" r="4"/>
     </g>
   </g>
+  <text x="100" y="190" font-size="12" text-anchor="middle" fill="#333">virus.sucks plotter</text>
 </svg>

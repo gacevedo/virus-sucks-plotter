@@ -56,3 +56,7 @@
   margin-top: 0px;
   font-size: 10px;
 }
+
+.test-info .test-type {
+  font-weight: bold;
+}

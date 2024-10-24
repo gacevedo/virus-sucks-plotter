@@ -19,7 +19,7 @@ const SimpleLineChart = () => {
         setData(jsonData);
       } catch (error) {
         console.error('Error parsing JSON:', error);
-        alert('Error loading file. Please make sure it\'s a valid JSON file.');
+        alert('Error loading file. Please make sure it\'s a valid JSON file exported from the virus.sucks app.');
       }
     };
 
@@ -82,6 +82,24 @@ const SimpleLineChart = () => {
     return [...new Set(data.testData.samples.map(sample => sample.startingChannel))];
   }, [data]);
 
+  const getDetectionResultText = (detectionResult) => {
+    switch (detectionResult) {
+      case 1: return 'Negative';
+      case 2: return 'Positive';
+      case 3: return 'Invalid';
+      default: return 'Unknown';
+    }
+  };
+
+  const getDetectionResultStyle = (detectionResult) => {
+    switch (detectionResult) {
+      case 1: return { color: 'green', fontWeight: 'bold', marginLeft: '4px' };
+      case 2: return { color: 'red', fontWeight: 'bold', marginLeft: '4px' };
+      case 3: return { color: 'orange', fontWeight: 'bold', marginLeft: '4px' };
+      default: return {};
+    }
+  };
+
   return (
     <div className="chart-container">
       <div 
@@ -92,7 +110,7 @@ const SimpleLineChart = () => {
         onDrop={handleDrop}
       >
         <Logo className="logo" alt="virus.sucks plotter logo" />
-        <span>Load a PlusLife results file exported from the <a href="https://virus.sucks" target="_blank" rel="noopener noreferrer">virus.sucks</a> app:</span>
+        <span>Load and plot a PlusLife tests results file exported from the <a href="https://virus.sucks" target="_blank" rel="noopener noreferrer">virus.sucks</a> app:</span>
         <input type="file" onChange={handleFileUpload} accept=".json" />
         <p>or drag and drop a JSON file here</p>
       </div>
@@ -101,9 +119,9 @@ const SimpleLineChart = () => {
       </div>
       {data && (
         <div className='test-info'>
-          <p>Test type: {data.testType} | Test result: 
-            <span style={{ color: data.testResult.detectionResult === 1 ? 'green' : 'red' }}>
-              {data.testResult.detectionResult === 1 ? ' Negative' : ' Positive'}
+          <p>Test type: <span className='test-type'>{data.testType}</span> | Test result: 
+            <span style={getDetectionResultStyle(data.testResult.detectionResult)}>
+              {getDetectionResultText(data.testResult.detectionResult)}
             </span>
           </p>
         </div>
