@@ -100,6 +100,15 @@ const SimpleLineChart = () => {
         Disclaimer: this data is not transmitted to any server. It is processed only in your browser. Source code is available <a href="https://github.com/gacevedo/virus-sucks-plotter" target="_blank" rel="noopener noreferrer"> on GitHub</a>.
       </div>
       {data && (
+        <div className='test-info'>
+          <p>Test type: {data.testType} | Test result: 
+            <span style={{ color: data.testResult.detectionResult === 1 ? 'green' : 'red' }}>
+              {data.testResult.detectionResult === 1 ? ' Negative' : ' Positive'}
+            </span>
+          </p>
+        </div>
+      )}
+      {data && (
         <LineChart 
           width={800} 
           height={400}
