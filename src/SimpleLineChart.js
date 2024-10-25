@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { ReactComponent as Logo } from './logo.svg';
+import { ResponsiveContainer } from 'recharts';
 
 const SimpleLineChart = () => {
   const [data, setData] = useState(null);
@@ -114,7 +115,7 @@ const SimpleLineChart = () => {
         <input type="file" onChange={handleFileUpload} accept=".json" />
       </div>
       <div className='disclaimer'>
-        Disclaimer: <span className='disclaimer-bold'>Do not use for professional or medical purposes.</span> Data is not transmitted to any server. It is processed only in your browser. <a href="https://github.com/gacevedo/virus-sucks-plotter" target="_blank" rel="noopener noreferrer">Source code is available</a>.
+        Disclaimer: <span className='disclaimer-bold'>Do not use for professional or medical purposes.</span> Data is not transmitted to any server. It is processed only in your browser. <a href="https://github.com/gacevedo/virus-sucks-plotter" target="_blank" rel="noopener noreferrer">View source code</a>.
       </div>
       {data && (
         <div className='test-info'>
@@ -126,35 +127,37 @@ const SimpleLineChart = () => {
         </div>
       )}
       {data && (
-        <LineChart 
-          width={800} 
-          height={400}
-          data={processedData}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis 
-            dataKey="samplingTime" 
-            tickFormatter={(value) => value.toFixed(1)}
-            label={{ value: "Time since start (min)", position: "bottom", offset: 0 }}
-          />
-          <YAxis
-            label={{ value: "Fluorescence value", angle: -90, position: "insideLeft", offset: -8, style: { textAnchor: 'middle' } }}
-          />
-          <Tooltip />
-          <Legend 
-            wrapperStyle={{ fontSize: '12px', fontFamily: 'Arial, sans-serif' }}
-          />
-          {channels.map((channel, index) => (
-            <Line
-              key={channel}
-              type="monotone"
-              dataKey={channel.toString()}
-              stroke={`hsl(${(index * 360) / channels.length}, 70%, 50%)`}
-              name={channel === 3 ? `Channel ${channel + 1} (control)` : `Channel ${channel + 1}`}
+        <ResponsiveContainer width="100%" height={300}>
+          <LineChart 
+            width={800} 
+            height={400}
+            data={processedData}
+            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis 
+              dataKey="samplingTime" 
+              tickFormatter={(value) => value.toFixed(1)}
+              label={{ value: "Time since start (min)", position: "bottom", offset: 0 }}
             />
-          ))}
-        </LineChart>
+            <YAxis
+              label={{ value: "Fluorescence value", angle: -90, position: "insideLeft", offset: -8, style: { textAnchor: 'middle' } }}
+            />
+            <Tooltip />
+            <Legend 
+              wrapperStyle={{ fontSize: '12px', fontFamily: 'Arial, sans-serif' }}
+            />
+            {channels.map((channel, index) => (
+              <Line
+                key={channel}
+                type="monotone"
+                dataKey={channel.toString()}
+                stroke={`hsl(${(index * 360) / channels.length}, 70%, 50%)`}
+                name={channel === 3 ? `Channel ${channel + 1} (control)` : `Channel ${channel + 1}`}
+              />
+            ))}
+          </LineChart>
+        </ResponsiveContainer>
       )}
     </div>
   );

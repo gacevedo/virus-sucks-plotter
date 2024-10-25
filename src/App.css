@@ -1,7 +1,10 @@
 .chart-container {
   position: relative;
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   margin: 20px auto;
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 
 .file-picker {
@@ -13,6 +16,9 @@
   border-radius: 5px;
   margin-bottom: 20px;
   transition: all 0.3s ease;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 20px;
 }
 
 .file-picker.dragging {
@@ -21,14 +27,15 @@
 }
 
 .file-picker .logo {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   margin-bottom: 10px;
 }
 
 .file-picker span {
   margin-bottom: 10px;
   text-align: center;
+  font-size: 14px;
 }
 
 .file-picker input[type="file"] {
@@ -59,6 +66,7 @@
 
 .test-info {
   margin-top: 50px;
+  font-size: 14px;
 }
 
 .test-info .test-type {
@@ -67,4 +75,27 @@
 
 .disclaimer-bold {
   font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .chart-container {
+    margin: 10px auto;
+  }
+
+  .file-picker {
+    padding: 10px;
+  }
+
+  .file-picker span {
+    font-size: 14px;
+  }
+
+  .disclaimer {
+    font-size: 8px;
+  }
+
+  .test-info {
+    margin-top: 30px;
+    font-size: 14px;
+  }
 }
