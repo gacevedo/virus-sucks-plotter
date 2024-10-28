@@ -143,7 +143,7 @@ const SimpleLineChart = () => {
         </div>
       )}
       {data && (
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height={400}>
           <LineChart 
             width={800} 
             height={400}
