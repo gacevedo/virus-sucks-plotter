@@ -101,6 +101,24 @@ const SimpleLineChart = () => {
     }
   };
 
+  const getControlResultText = (detectionResult) => {
+    switch (detectionResult) {
+      case 1: return 'Negative';
+      case 2: return 'Positive';
+      case 3: return 'Invalid';
+      default: return 'Unknown';
+    }
+  };
+
+  const getControlResultStyle = (detectionResult) => {
+    switch (detectionResult) {
+      case 1: return { color: 'red', fontWeight: 'bold', marginLeft: '4px' };
+      case 2: return { color: 'green', fontWeight: 'bold', marginLeft: '4px' };
+      case 3: return { color: 'orange', fontWeight: 'bold', marginLeft: '4px' };
+      default: return {};
+    }
+  };
+
   return (
     <div className="chart-container">
       <div 
@@ -119,10 +137,8 @@ const SimpleLineChart = () => {
       </div>
       {data && (
         <div className='test-info'>
-          <p>Test type: <span className='test-type'>{data.testType}</span> | Test result: 
-            <span style={getDetectionResultStyle(data.testResult.detectionResult)}>
-              {getDetectionResultText(data.testResult.detectionResult)}
-            </span>
+          <p>Date: {new Date(data.testData.temperatureSamples[0].time).toLocaleDateString()} | Time: {new Date(data.testData.temperatureSamples[0].time).toLocaleTimeString()}</p>
+          <p>Test type: <span className='test-type'>{data.testType}</span> | Test result: <span style={getDetectionResultStyle(data.testResult.detectionResult)}>{getDetectionResultText(data.testResult.detectionResult)}</span> | Control: <span style={getControlResultStyle(data.testResult.subGroupResults[0])}>{getControlResultText(data.testResult.subGroupResults[0])}</span>
           </p>
         </div>
       )}
